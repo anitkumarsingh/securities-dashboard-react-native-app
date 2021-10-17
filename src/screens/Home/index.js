@@ -1,21 +1,24 @@
-import React from 'react'
-import { View,Text,StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet,Button } from 'react-native';
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    alignItems:'center',
-    justifyContent:'center'
-  }
-})
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	}
+});
 
+const Home = ({navigation}) => {
+	return (
+		<View style={styles.container}>
+			<Text>This is home screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Securities')}
+      />
+		</View>
+	);
+};
 
-const Home = props => {
-  return (
-    <View style={styles.container}>
-      <Text>This is home screen</Text>
-    </View>
-  )
-}
-
-export default Home
+export default Home;
