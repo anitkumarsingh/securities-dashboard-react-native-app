@@ -1,6 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Securities from '../../screens/Securities';
+import Securities from '../../screens/Securities/Details';
 import Home from '../../screens/Home';
 import Settings from '../../screens/Settings';
 
@@ -10,7 +10,7 @@ const Navigation = () => {
 		<Stack.Navigator
 			screenOptions={{
 				headerStyle: {
-					backgroundColor: '#f4511e'
+					backgroundColor: '#4A7BD0'
 				},
 				headerTintColor: '#fff',
 				headerTitleStyle: {
