@@ -69,8 +69,7 @@ const Home = ({ navigation }) => {
 					placeholder='Search Stocks by Security Id...'
 					onChangeText={(text) => searchFilter(text)}
 					value={searchTerm}
-					keyboardShouldPersistTaps='always'
-					keyboardDismissMode='on-drag'
+					autoFocus={true}
 				/>
 			</View>
 		);
