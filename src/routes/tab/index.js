@@ -26,7 +26,7 @@ const Tab = () => {
 
 						return <Ionicons name={iconName} size={size} color={color} />;
 					},
-					tabBarActiveTintColor: 'tomato',
+					tabBarActiveTintColor: `${colors.primary}`,
 					tabBarInactiveTintColor: 'gray'
 				})}>
 				<Tab.Screen

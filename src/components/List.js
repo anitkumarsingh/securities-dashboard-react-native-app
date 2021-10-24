@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image,	TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { AvatarUrl } from '../constants';
 
 const List = ({ data, navigation }) => {
@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 14,
-    fontWeight:'bold'
+		fontWeight: 'bold'
 	},
-  subtitle:{
-    fontSize:12,
-    color:'#666',
-    fontWeight:'700'
-  },
+	subtitle: {
+		fontSize: 12,
+		color: '#666',
+		fontWeight: '700'
+	},
 	avatar: {
 		width: 50,
 		height: 50,
