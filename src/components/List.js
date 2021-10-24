@@ -34,11 +34,8 @@ export default List;
 
 const styles = StyleSheet.create({
 	item: {
-		// backgroundColor: '#f9c2ff',
 		padding: 15,
-		// marginVertical: 8,
 		marginHorizontal: 16
-		// borderRadius: 20
 	},
 	content: {
 		display: 'flex',

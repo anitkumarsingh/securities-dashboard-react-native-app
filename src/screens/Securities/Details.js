@@ -83,21 +83,16 @@ const Details = ({ route }) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1
-		// justifyContent: 'center',
-		// alignItems: 'center'
 	},
 	bannerContainer: {
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'center',
-		// justifyContent: 'space-evenly',
 		marginTop: 50,
 		backgroundColor: '#d3d3d3',
 		width: '100%'
 	},
 	img: {
-		// paddingVertical: 35,
-		// paddingHorizontal: 30,
 		backgroundColor: '#fff',
 		borderRadius: 500,
 		zIndex: 10,
@@ -105,8 +100,6 @@ const styles = StyleSheet.create({
 	},
 	bg: {
 		backgroundColor: '#d3d3d3'
-		// paddingVertical: 20,
-		// paddingHorizontal: 190
 	},
 	info: {
 		display: 'flex',

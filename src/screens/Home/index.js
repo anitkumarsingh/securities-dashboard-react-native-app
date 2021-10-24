@@ -1,9 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import {
 	View,
-	Text,
 	StyleSheet,
-	Button,
 	FlatList,
 	TextInput,
 	SafeAreaView,
@@ -36,7 +34,6 @@ const Home = ({ navigation }) => {
 	const handleNext = () => {
 		setPageNumber(pageNumber + 1);
 	};
-	console.log('search', searchTerm);
 	const renderItem = ({ item }) => <List data={item} navigation={navigation} />;
 	const renderSeparator = () => {
 		return (
@@ -51,7 +48,7 @@ const Home = ({ navigation }) => {
 		);
 	};
 
-	const searchFilterFunction = (text) => {
+	const searchFilter = (text) => {
 		setIsLoading(true);
 		setSearchTerm(text);
 		const newData = stockHolder.filter((item) => {
@@ -70,14 +67,10 @@ const Home = ({ navigation }) => {
 			<View style={styles.textInput}>
 				<TextInput
 					placeholder='Search Stocks by Security Id...'
-					onChangeText={(text) => searchFilterFunction(text)}
+					onChangeText={(text) => searchFilter(text)}
 					value={searchTerm}
-					underlineColorAndroid='transparent'
-					blurOnSubmit={false}
-					autoFocus={false}
-					autoCorrect={false}
-					autoCapitalize='none'
-					returnKeyType='next'
+					keyboardShouldPersistTaps='always'
+					keyboardDismissMode='on-drag'
 				/>
 			</View>
 		);
