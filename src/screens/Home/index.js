@@ -1,38 +1,79 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity } from 'react-native';
+import React, { useState, useLayoutEffect } from 'react';
+import {
+	View,
+	Text,
+	StyleSheet,
+	Button,
+	FlatList,
+	TextInput,
+} from 'react-native';
 import { stocks } from '../../mocks';
-
-const Item = ({ title, securityId, navigation }) => (
-	<TouchableOpacity
-		onPress={() => {
-			navigation.navigate('Securities', {
-				itemId:securityId,
-			});
-		}}>
-		<View style={styles.item}>
-			<View style={styles.content}>
-				<Text style={styles.title}>{title}</Text>
-				<Text style={styles.title}>{securityId}</Text>
-			</View>
-		</View>
-	</TouchableOpacity>
-);
+import { Ionicons } from '@expo/vector-icons';
+import List from '../../components/List';
+import Pagination from '../../components/Pagination';
 
 const Home = ({ navigation }) => {
-	const renderItem = ({ item }) => (
-		<Item
-			title={item['Security Name']}
-			securityId={item['Security Id']}
-			navigation={navigation}
-		/>
-	);
+	const [stock, setStock] = useState(stocks);
+	const [count, setCount] = useState(0);
+	const [searchInputVisible, setSearchInputVisible] = useState(false);
+	const [pageNumber, setPageNumber] = useState(1);
+	const [stockNumber] = useState(10);
+
+	const currentPageNumber = pageNumber * stockNumber - stockNumber;
+	const paginatedStocks = stock.splice(currentPageNumber, stockNumber);
+
+	const handlePrev = () => {
+		if (pageNumber === 1) return;
+		setPageNumber(pageNumber - 1);
+	};
+	const handleNext = () => {
+		setPageNumber(pageNumber + 1);
+	};
+
+	const renderItem = ({ item }) => <List data={item} navigation={navigation} />;
+	const renderSeparator = () => {
+		return (
+			<View
+				style={{
+					height: 1,
+					width: '86%',
+					backgroundColor: '#CED0CE',
+					marginLeft: '8%'
+				}}
+			/>
+		);
+	};
+
+	const searchHandler = () => {
+		setSearchInputVisible(true);
+		setCount((c) => c + 1);
+	};
+
+	useLayoutEffect(() => {
+		navigation.setOptions({
+			headerRight: () => (
+				<Ionicons
+					name='search'
+					size={20}
+					color={'white'}
+					onPress={() => searchHandler()}
+					title='Update count'
+				/>
+			)
+		});
+	}, [navigation, setCount]);
+
 	return (
 		<View style={styles.container}>
+			<Text>Count: {count}</Text>
+			{searchInputVisible ? <TextInput placeholder='search' /> : null}
 			<FlatList
-				data={stocks}
+				data={paginatedStocks}
 				renderItem={renderItem}
 				keyExtractor={(item) => item['ISIN No']}
+				ItemSeparatorComponent={renderSeparator}
 			/>
+			<Pagination handleNext={handleNext} handlePrev={handlePrev}/>
 		</View>
 	);
 };
@@ -40,22 +81,6 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1
-	},
-	item: {
-		backgroundColor: '#f9c2ff',
-		padding: 20,
-		marginVertical: 8,
-		marginHorizontal: 16,
-		borderRadius: 20
-	},
-	content: {
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center'
-	},
-	title: {
-		fontSize: 14
 	}
 });
 

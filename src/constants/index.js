@@ -1,0 +1,1 @@
+export const AvatarUrl ='https://ui-avatars.com/api/'
