@@ -5,6 +5,7 @@ import Home from '../stack';
 import Settings from '../../screens/Settings';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import {colors} from '../../utils/colors';
 
 const Tab = () => {
 	const Tab = createBottomTabNavigator();
@@ -40,9 +41,9 @@ const Tab = () => {
 					component={Settings}
 					options={{
 						headerStyle: {
-							backgroundColor: '#4A7BD0'
+							backgroundColor: `${colors.primary}`
 						},
-						headerTintColor: '#fff',
+						headerTintColor: `${colors.white}`,
 						headerTitleStyle: {
 							fontWeight: 'bold'
 						}

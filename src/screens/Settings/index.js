@@ -1,11 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-const Settings = ({ navigation }) => {
+const Settings = () => {
 	return (
 		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-			<Text>Settings!</Text>
-			<Button title='Go to Details' onPress={() => navigation.navigate('Securities')} />
+			<Text>Design and Developed by Anit Kumar</Text>
 		</View>
 	);
 };

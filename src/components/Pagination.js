@@ -1,12 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const Pagination = ({handleNext,handlePrev}) => {
 	return (
 		<View style={styles.paginationContainer}>
-			{/* <Button onPress={handlePrev} title='Prev' /> */}
-			{/* <Button onPress={handleNext} title='Next' /> */}
       <MaterialIcons name="navigate-before" size={24} color="black" onPress={handlePrev} title='Prev' />
       <MaterialIcons name="navigate-next" size={24} color="black" onPress={handleNext} title='Next' />
 		</View>
